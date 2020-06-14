@@ -85,5 +85,10 @@ def audio():
     return send_file(audio)
 
 
+@app.route("/", methods=['GET'])
+def init_app():
+    return {'sucess': True}
+    
+
 if __name__ == '__main__':
     app.run(debug=app.config['DEBUG'])
