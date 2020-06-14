@@ -66,8 +66,26 @@ def bot():
             print(introduction)
             msg.body(introduction)
         else:
-            retorno_audio = utils.convert_text_in_audio(incoming_msg)
-            msg.body(f'static/{retorno_audio}')
+            text_audio = response.get('text')
+            params = {'phrase': text_audio}
+            url = f'{app.config["URL_BACKEND"]}/recomendations/search'
+
+            req = requests.get(url, params=params)
+            try:
+                req_json = req.json()
+                if req.status_code != 200 or req_json.get('message'):
+                    msg.body('Não entendi parceiro. Tente pesquisar por: restaurante, comida, gasolina, posar')
+
+                    return str(resp)
+            except:    
+                msg.body('Não entendi parceiro. Tente pesquisar por: restaurante, comida, gasolina, posar')
+
+                return str(resp)
+            
+            response = f'''Encontrei o seguinte local: {req_json.get('name')}\nLocalizado em: {req_json.get('address')}\nVer mais sobre: {req_json.get('link')}'''
+
+            msg.body(response)
+
 
     return str(resp)
 
