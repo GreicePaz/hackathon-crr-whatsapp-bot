@@ -3,7 +3,6 @@ from flask_restful import request, abort
 from twilio.twiml.messaging_response import MessagingResponse
 
 from lib import utils
-from static import *
 from os import path
 
 import requests, json
@@ -88,7 +87,7 @@ def audio():
 @app.route("/", methods=['GET'])
 def init_app():
     return {'sucess': True}
-    
+
 
 if __name__ == '__main__':
     app.run(debug=app.config['DEBUG'])
