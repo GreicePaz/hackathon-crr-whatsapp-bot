@@ -1,8 +1,8 @@
 Flask==1.1.2
 Flask-RESTful==0.3.8
 gTTS==2.1.1
-ffmpeg
 libav-tools
+ffmpeg
 libavcodec-extra
 pydub==0.24.1
 requests==2.23.0
