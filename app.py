@@ -66,8 +66,7 @@ def bot():
             print(introduction)
             msg.body(introduction)
         else:
-            text_audio = response.get('text')
-            params = {'phrase': text_audio}
+            params = {'phrase': incoming_msg}
             url = f'{app.config["URL_BACKEND"]}/recomendations/search'
 
             req = requests.get(url, params=params)
