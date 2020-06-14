@@ -1,14 +1,6 @@
 Flask==1.1.2
 Flask-RESTful==0.3.8
 gTTS==2.1.1
-libasound-dev
-portaudio19-dev
-libportaudio2
-libportaudiocpp0
-ffmpeg
-libav-tools
-pyaudio
-libavcodec-extra
 pydub==0.24.1
 requests==2.23.0
 SpeechRecognition==3.8.1
